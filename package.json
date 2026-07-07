@@ -1,0 +1,23 @@
+{
+  "name": "shopnest-fullstack-website",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "Jatin",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "install": "cd backend && npm install && cd ../frontend && npm install",
+    "dev:server": "cd backend && npm run dev",
+    "dev:client": "cd frontend && npm run dev",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "build": "cd frontend && npm run build"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.1",
+    "concurrently": "^10.0.3",
+    "init": "^0.1.2",
+    "react-redux": "^9.3.0",
+    "tailwindcss": "^4.3.1"
+  }
+}
