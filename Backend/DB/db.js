@@ -6,6 +6,7 @@ const connectDB = async () => {
         const mongoUri = process.env.MONGO_URI || `mongodb://127.0.0.1:27017/${DB_NAME}`
 
         const connectionInstance = await mongoose.connect(mongoUri, {
+            dbName: DB_NAME,
             serverSelectionTimeoutMS: 5000,
             family: 4,
         })

@@ -84,7 +84,7 @@ const Cart = () => {
                         className="h-full w-11 text-lg font-semibold text-zinc-300 transition hover:bg-zinc-800 hover:text-white"
                         aria-label={`Decrease quantity of ${item.name}`}
                       >
-                        -
+                      -
                       </button>
                       <span className="min-w-12 px-4 text-center text-sm font-semibold text-white">{item.qty}</span>
                       <button

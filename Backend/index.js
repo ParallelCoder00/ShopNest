@@ -13,10 +13,10 @@ import productRouter from "./Routes/product.route.js"
 import orderRouter from "./Routes/order.route.js"
 import paymentRouter from "./Routes/payment.route.js"
 import analyticsRouter from "./Routes/analytics.route.js"
+import { syncSeedProducts } from "./seed.js"
 
 
 dotenv.config()
-connectDB()
 
 
 const app = express()
@@ -53,7 +53,17 @@ app.use((err, req, res, next) => {
 })
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT , ()=>{
-    console.log(`Server is running on port ${PORT}`);  
-}) 
+const startServer = async () => {
+    try {
+        await connectDB()
+        await syncSeedProducts()
+        app.listen(PORT, () => {
+            console.log(`Server is running on port ${PORT}`)
+        })
+    } catch (error) {
+        console.error("Server startup failed:", error)
+        process.exit(1)
+    }
+}
 
+startServer()
